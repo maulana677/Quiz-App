@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    <h3 class="text-dark mb-5">Selamat Datang Kembali, Muhammad Yunus</h3>
+    <h3 class="text-dark mb-5">Selamat Datang Kembali, {{ auth()->user()->name }}</h3>
 
     <div class="row">
         <div class="col-md-3">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin', [DashboardController::class, 'index'])->middleware(['auth', 'isAdmin'])->name('admin.dashboard');
+
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+    /** Dashboard admin */
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    /** Quiz Admin */
+    Route::resource('kuis', QuizController::class);
+});
