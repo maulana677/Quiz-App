@@ -7,9 +7,7 @@
     <link rel="shortcut icon" href="{{ url('assets/images/logo.png') }}" type="image/x-icon">
     <title>Login</title>
 
-    <link rel="stylesheet" href="{{ url('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/vendors/boxicons/css/boxicons.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
+    @include('components.style')
 </head>
 
 <body class="bg-soft-blue">
@@ -31,7 +29,7 @@
         </div>
     </div>
 
-    <script src="{{ url('assets/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    @include('components.script')
 </body>
 
 </html>
