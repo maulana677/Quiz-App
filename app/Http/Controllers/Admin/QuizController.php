@@ -23,7 +23,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.quiz.create');
     }
 
     /**
@@ -31,7 +31,10 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Quiz::create($data);
+
+        return redirect()->route('kuis.index');
     }
 
     /**
@@ -47,7 +50,8 @@ class QuizController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $quiz = Quiz::find($id);
+        return view('admin.pages.quiz.edit', compact('quiz'));
     }
 
     /**
@@ -55,7 +59,10 @@ class QuizController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        Quiz::find($id)->update($data);
+
+        return redirect()->route('kuis.index');
     }
 
     /**
@@ -63,6 +70,7 @@ class QuizController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Quiz::find($id)->delete();
+        return redirect()->route('kuis.index');
     }
 }
