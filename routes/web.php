@@ -26,7 +26,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/kuis/{quiz_id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('kuis.detail');
 
 /** Start Quiz */
-Route::get('/kuis/{quiz_id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('kuis.detail');
+Route::get('/kuis/{quiz_id}/pertanyaan/{question_id}', [App\Http\Controllers\HomeController::class, 'question'])->name('kuis.pertanyaan');
+Route::post('/kuis/{quiz_id}/pertanyaan/{question_id}', [App\Http\Controllers\HomeController::class, 'question_store'])->name('kuis.pertanyaan.store');
+Route::get('/kuis/{quiz_id}/berhasil', [App\Http\Controllers\HomeController::class, 'success'])->name('kuis.berhasil');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     /** Dashboard admin */

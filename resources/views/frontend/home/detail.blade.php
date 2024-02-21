@@ -12,7 +12,8 @@
                 {{ $quiz->description }}
             </h5>
 
-            <a href="." class="btn btn-primary mx-auto" style="width: max-content;">Mulai Kuis</a>
+            <a href="{{ route('kuis.pertanyaan', [$quiz->id, $quiz->questions->first()->id]) }}"
+                class="btn btn-primary mx-auto" style="width: max-content;">Mulai Kuis</a>
         </div>
     </div>
 @endsection
