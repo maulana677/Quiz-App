@@ -32,7 +32,7 @@
                         <a class="nav-link" href="{{ route('kuis.index') }}">List Kuis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-list-pengguna.html">Pengguna</a>
+                        <a class="nav-link" href="{{ route('pengguna.index') }}">Pengguna</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homepage');
+        $quizzes = Quiz::orderBy('id', 'desc')->get();
+        return view('frontend.layouts.homepage', compact('quizzes'));
+    }
+
+    public function detail($id)
+    {
+        $quiz = Quiz::find($id);
+        return view('frontend.home.detail', compact('quiz'));
     }
 }

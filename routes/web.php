@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,12 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/** Detail Quiz */
+Route::get('/kuis/{quiz_id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('kuis.detail');
+
+/** Start Quiz */
+Route::get('/kuis/{quiz_id}', [App\Http\Controllers\HomeController::class, 'detail'])->name('kuis.detail');
+
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     /** Dashboard admin */
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -30,4 +37,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     /** Question Admin */
     Route::resource('pertanyaan', QuestionController::class);
+
+    /** Users Admin */
+    Route::resource('pengguna', UserController::class);
 });
