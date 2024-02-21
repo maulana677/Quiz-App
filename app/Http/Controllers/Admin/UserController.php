@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('roles', 'pengguna')->get();
+        $users = User::all('roles', 'pengguna');
 
         return view('admin.pages.user.index', compact('users'));
     }
